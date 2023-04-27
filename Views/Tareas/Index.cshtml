@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Tareasv2.Tarea>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaI)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Solucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TiempoIdeal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProyectoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrioridadNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TiempoIdeal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProyectoNavigation.NombreProyecto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadNavigation.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
